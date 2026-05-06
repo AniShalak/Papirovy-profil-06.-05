@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Papírový profil</title>
+  <style>body{margin:0;background:#fff;}</style>
+</head>
+<body>
+<script>
+(function() {
+  // Check both screen size AND user agent for reliable mobile detection
+  var ua = navigator.userAgent || navigator.vendor || window.opera;
+  var isMobileUA = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini|mobile/i.test(ua);
+  var isMobileWidth = window.screen.width <= 768;
+  var isMobile = isMobileUA || isMobileWidth;
+  
+  // Build correct path relative to current page
+  var path = window.location.pathname;
+  var dir = path.substring(0, path.lastIndexOf('/') + 1);
+  var target = dir + (isMobile ? 'mobile.html' : 'desktop.html');
+  
+  window.location.href = target;
+})();
+</script>
+</body>
+</html>
